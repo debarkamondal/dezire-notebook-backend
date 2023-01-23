@@ -6,8 +6,14 @@
   "repository": "git@github.com:debarkamondal/dezire-notebook-backend.git",
   "author": "debarkamondal <debarkamondal@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "serve": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^6.8.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
