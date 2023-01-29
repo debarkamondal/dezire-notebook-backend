@@ -90,10 +90,13 @@ router.post(
 
 //--------------------------------- Fetching user details after login at /api/auth/getuser ----------------------------------------//
 
-router.post("/getuser", fetchUser, async (req, res) => {
-  // userId = "63d5f000ddf52da7b65b19c8";
-  const user = await User.findById(req.user.id).select("-password");
-  console.log(user);
+router.get("/getuser", fetchUser, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 module.exports = router;
