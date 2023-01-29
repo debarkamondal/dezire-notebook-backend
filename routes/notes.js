@@ -43,4 +43,8 @@ router.post(
   }
 );
 
+router.put("/updatenote/:id", fetchUser, async (req, res) => {
+  let note = await Notes.findById(req.params.id);
+  console.log(note.toString());
+});
 module.exports = router;
