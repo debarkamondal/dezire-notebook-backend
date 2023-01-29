@@ -74,7 +74,8 @@ router.post(
     try {
       let user = await User.findOne({ email: req.body.email });
       //checking if password matches
-      if (user.password == req.body.password) {
+      if (await bcrypt.compare(req.body.password, user.password)) {
+        console.log(`User entered pass ${req.body.password}\nDatabase password ${user.password}`)
         const data = {
           user: { id: user.id },
         };
