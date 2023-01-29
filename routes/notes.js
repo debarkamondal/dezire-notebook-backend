@@ -45,43 +45,51 @@ router.post(
 );
 
 router.put("/updatenote/:id", fetchUser, async (req, res) => {
-  // checking and fetching note from db
-  let note = await Notes.findById(req.params.id);
-  if (!note) {
-    return res.status(404).send("Note not found");
-  }
-
-  // checking if the note in question belongs to the user or not
-  if (note.user.toString() !== req.user.id)
-    return res.send("Permission denied");
-
   let { title, description, tag } = req.body;
 
-  //Settings the values to be updated
-  if (title) note.title = title;
-  if (description) note.description = description;
-  if (tag) note.tag = tag;
-  note = await Notes.findByIdAndUpdate(
-    req.params.id,
-    { $set: note },
-    { new: true }
-  );
-  // res.json(note);
-  res.send(note);
+  try {
+    // checking and fetching note from db
+    let note = await Notes.findById(req.params.id);
+    if (!note) {
+      return res.status(404).send("Note not found");
+    }
+
+    // checking if the note in question belongs to the user or not
+    if (note.user.toString() !== req.user.id)
+      return res.send("Permission denied");
+
+    //Settings the values to be updated
+    if (title) note.title = title;
+    if (description) note.description = description;
+    if (tag) note.tag = tag;
+    note = await Notes.findByIdAndUpdate(
+      req.params.id,
+      { $set: note },
+      { new: true }
+    );
+    // res.json(note);
+    res.send(note);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
 });
 
 //------------------------------------------------------ Deleting a note ----------------------------------------/
 router.delete("/delete/:id", fetchUser, async (req, res) => {
-  // checking and fetching note from db
-  let note = await Notes.findById(req.params.id);
-  if (!note) {
-    return res.status(404).send("Note not found");
-  }
-  // checking if the note in question belongs to the user or not
-  if (note.user.toString() !== req.user.id)
-    return res.send("Permission denied");
+  try {
+    // checking and fetching note from db
+    let note = await Notes.findById(req.params.id);
+    if (!note) {
+      return res.status(404).send("Note not found");
+    }
+    // checking if the note in question belongs to the user or not
+    if (note.user.toString() !== req.user.id)
+      return res.send("Permission denied");
 
-  note = await Notes.findByIdAndDelete(req.params.id);
-  res.send("Success");
+    note = await Notes.findByIdAndDelete(req.params.id);
+    res.send("Success");
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
 });
 module.exports = router;
