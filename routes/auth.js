@@ -4,10 +4,11 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const fetchUser = require("../middleware/fetchUser");
 
 const JWT_SECRET = "dezirenotebook";
 
-//Create user using : POST at /api/auth/createuser
+//---------------------------------------Create user using : POST at /api/auth/createuser -----------------------------------//
 router.post(
   "/createuser",
   [
@@ -46,7 +47,6 @@ router.post(
         user: { id: user.id },
       };
       const authToken = jwt.sign(data, JWT_SECRET);
-
       res.json({ authToken });
     } catch (error) {
       console.log(error.message);
@@ -55,7 +55,7 @@ router.post(
   }
 );
 
-// Loggin in user at /api/login
+//--------------------------------------------------- Loggin in user at /api/auth/login -----------------------------------------//
 router.post(
   "/login",
   [
@@ -75,7 +75,6 @@ router.post(
       let user = await User.findOne({ email: req.body.email });
       //checking if password matches
       if (await bcrypt.compare(req.body.password, user.password)) {
-        console.log(`User entered pass ${req.body.password}\nDatabase password ${user.password}`)
         const data = {
           user: { id: user.id },
         };
@@ -88,4 +87,13 @@ router.post(
     }
   }
 );
+
+//--------------------------------- Fetching user details after login at /api/auth/getuser ----------------------------------------//
+
+router.post("/getuser", fetchUser, async (req, res) => {
+  // userId = "63d5f000ddf52da7b65b19c8";
+  const user = await User.findById(req.user.id).select("-password");
+  console.log(user);
+});
+
 module.exports = router;
