@@ -3,6 +3,7 @@ const router = express.Router();
 const fetchUser = require("../middleware/fetchUser");
 const Notes = require("../models/Notes");
 const { body, validationResult } = require("express-validator");
+const nodemon = require("nodemon");
 
 //---------------------------------------------Fetching all notes for user-------------------------------------------------//
 router.get("/fetchallnotes", fetchUser, async (req, res) => {
@@ -44,7 +45,26 @@ router.post(
 );
 
 router.put("/updatenote/:id", fetchUser, async (req, res) => {
+  // checking and fetching note from db
   let note = await Notes.findById(req.params.id);
-  console.log(note.toString());
+  if (!note) {
+    return res.status(404).send("Note not found");
+  }
+
+  if (note.user.toString() == req.user.id) {
+    let { title, description, tag } = req.body;
+
+    //Settings the values to be updated
+    if (title) note.title = title;
+    if (description) note.description = description;
+    if (tag) note.tag = tag;
+    note = await Notes.findByIdAndUpdate(
+      req.params.id,
+      { $set: note },
+      { new: true }
+    );
+    // res.json(note);
+    res.send(note);
+  } else res.send("Permission denied");
 });
 module.exports = router;
