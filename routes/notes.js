@@ -75,7 +75,7 @@ router.put("/updatenote/:id", fetchUser, async (req, res) => {
 });
 
 //------------------------------------------------------ Deleting a note ----------------------------------------/
-router.delete("/delete/:id", fetchUser, async (req, res) => {
+router.delete("/deletenote/:id", fetchUser, async (req, res) => {
   try {
     // checking and fetching note from db
     let note = await Notes.findById(req.params.id);
