@@ -3,7 +3,6 @@ const router = express.Router();
 const fetchUser = require("../middleware/fetchUser");
 const Notes = require("../models/Notes");
 const { body, validationResult } = require("express-validator");
-const nodemon = require("nodemon");
 
 //---------------------------------------------Fetching all notes for user-------------------------------------------------//
 router.get("/fetchallnotes", fetchUser, async (req, res) => {
