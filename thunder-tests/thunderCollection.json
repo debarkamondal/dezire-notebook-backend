@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "colName": "dezire-notebook",
+    "created": "2023-03-14T11:33:18.054Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "190ca2da-b9c8-4882-9a86-17b479523f57",
+        "name": "Authentication",
+        "containerId": "",
+        "created": "2023-03-14T11:33:18.056Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "dcc3e453-53c1-4b13-8c2a-1c0052b253f6",
+        "name": "Notes",
+        "containerId": "",
+        "created": "2023-03-14T11:33:18.057Z",
+        "sortNum": 20000
+      }
+    ]
+  }
+]

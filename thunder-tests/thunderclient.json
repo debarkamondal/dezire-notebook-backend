@@ -1,0 +1,159 @@
+[
+  {
+    "_id": "4fd3f5c8-0468-438a-a5b2-75078d779608",
+    "colId": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "containerId": "190ca2da-b9c8-4882-9a86-17b479523f57",
+    "name": "Create new user",
+    "url": "http://localhost:5000/api/auth/createuser",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-03-14T11:33:18.056Z",
+    "modified": "2023-03-14T11:33:18.056Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Debarka Monda\",\n  \"email\": \"debarkamondal@gmail.com\",\n  \"password\": \"dM@23012015\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "11ce0659-ccc7-4552-a960-c0f867ba1e54",
+    "colId": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "containerId": "190ca2da-b9c8-4882-9a86-17b479523f57",
+    "name": "login",
+    "url": "http://localhost:5000/api/auth/login",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-03-14T11:33:18.057Z",
+    "modified": "2023-03-14T11:33:18.057Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@gmail.com\",\n  \"password\": \"testing\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "956520a3-22a7-4b43-a584-33835004b638",
+    "colId": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "containerId": "190ca2da-b9c8-4882-9a86-17b479523f57",
+    "name": "getuser",
+    "url": "http://localhost:5000/api/auth/getuser",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-03-14T11:33:18.058Z",
+    "modified": "2023-03-14T11:33:18.058Z",
+    "headers": [
+      {
+        "name": "auth-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNmZWZlODQyYzEwY2JiZjc5NDkxYjJhIn0sImlhdCI6MTY3NzY1NTY4NH0.JsFHnJcEnqLDMh34wXkJGbReCYXtOAdhSCpUC7lW7kA"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "00a9c0da-6537-4eed-9ef5-2c53471d25d4",
+    "colId": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "containerId": "dcc3e453-53c1-4b13-8c2a-1c0052b253f6",
+    "name": "fetchnotes",
+    "url": "http://localhost:5000/api/notes/fetchallnotes",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-03-14T11:33:18.059Z",
+    "modified": "2023-03-14T11:33:18.059Z",
+    "headers": [
+      {
+        "name": "auth-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQwMjZmNTYxYTg4N2RlM2Q4NmRlZmRiIn0sImlhdCI6MTY3Nzg4MTE3NH0.Rh1vVGy972-Gz418kX4sYndBmLaza21kk4MoHtj7w54"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "53fd4cad-db78-4718-9dbe-f397af5be963",
+    "colId": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "containerId": "dcc3e453-53c1-4b13-8c2a-1c0052b253f6",
+    "name": "Add note",
+    "url": "http://localhost:5000/api/notes/addnote",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-03-14T11:33:18.060Z",
+    "modified": "2023-03-14T11:33:18.060Z",
+    "headers": [
+      {
+        "name": "auth-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNmZWZjZGY5ZGEyZjhhMTY4NThkODRkIn0sImlhdCI6MTY3NzY1NTM0Nn0.nj2QSMCPskQKY-z_FxHqb9vYAChvX79Xu5yRCjJbZwk"
+      },
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Dummy title23\",\n  \"description\": \"dummy description23\",\n  \"tag\": \"general\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "8e86d597-ee3a-498b-b17c-c408bdafec2c",
+    "colId": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "containerId": "dcc3e453-53c1-4b13-8c2a-1c0052b253f6",
+    "name": "updatenote",
+    "url": "http://localhost:5000/api/notes/updatenote/63e3e0a5a9f994c67db07e1d",
+    "method": "PUT",
+    "sortNum": 70000,
+    "created": "2023-03-14T11:33:18.061Z",
+    "modified": "2023-03-14T11:33:18.061Z",
+    "headers": [
+      {
+        "name": "auth-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNWYwMDBkZGY1MmRhN2I2NWIxOWM4In0sImlhdCI6MTY3NTAxODg3NH0.mBECd-uMy1VmJEI_ziYQ7Cxn77bl-WKyPulpuIOBSas"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Dummy title updated 1\",\n  \"description\": \"dummy description\",\n  \"tag\": \"general\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "35a4483f-99d2-4302-b62a-5e6fa06fc8b9",
+    "colId": "47498375-0b8a-4e83-9fc4-1f70b15350e2",
+    "containerId": "dcc3e453-53c1-4b13-8c2a-1c0052b253f6",
+    "name": "delete note",
+    "url": "http://localhost:5000/api/notes/deletenote/63fe53b9246603090328c053",
+    "method": "DELETE",
+    "sortNum": 80000,
+    "created": "2023-03-14T11:33:18.062Z",
+    "modified": "2023-03-14T11:33:18.062Z",
+    "headers": [
+      {
+        "name": "auth-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNmZTUzM2RmZWI5MmRiY2NmYzQ2MTJhIn0sImlhdCI6MTY3NzYxMTkzOX0.PtGr5OsUzFcrQ7ULbOziSZ3IbutxOiiX5J2n6LCpyV4"
+      }
+    ],
+    "params": [],
+    "tests": []
+  }
+]
